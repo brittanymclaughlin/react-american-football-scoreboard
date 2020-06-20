@@ -8,14 +8,24 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const homeScore = 0;
   const awayScore = 0;
-  const quarter = 0;
+  const quarter = 1;
 
   const [homeCount, setHomeCount] = useState(homeScore);
   const [awayCount, setAwayCount] = useState(awayScore);
   const [qtrCount, setQtrCount] = useState(quarter);
 
+  function changeAway(e){
+    e.target.style.background = "goldenrod";
+    e.target.style.color="black";
+  }
+  function normAway(e){
+    e.target.style.background = "";
+    e.target.style.color="";
+  }
+
   return (
     <div className="container">
+      <h1 className="header">Game of the Year</h1>
       <section className="scoreboard">
         <div className="topRow">
           <div className="home">
@@ -40,15 +50,25 @@ function App() {
           <button className="homeButtons__fieldGoal" onClick={()=>setHomeCount(homeCount + 3)}>Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button className="awayButtons__touchdown" onClick={()=>setAwayCount(awayCount + 7)}>Away Touchdown</button>
-          <button className="awayButtons__fieldGoal" onClick={()=>setAwayCount(awayCount + 3)}>Away Field Goal</button>
+          <button 
+          className="awayButtons__touchdown" 
+          onClick={()=>setAwayCount(awayCount + 7)}
+          onMouseEnter={changeAway}
+          onMouseLeave={normAway}
+          >Away Touchdown</button>
+          <button 
+          className="awayButtons__fieldGoal" 
+          onClick={()=>setAwayCount(awayCount + 3)} 
+          onMouseEnter={changeAway}
+          onMouseLeave={normAway}
+          >Away Field Goal</button>
         </div>
         <div className="qtrButton">
           <button className="qtrButton__quarterbutton" onClick={()=>{
             if(qtrCount < 4){
               setQtrCount(qtrCount + 1)
             }else{
-              setQtrCount(0);
+              setQtrCount(1);
             };
           }}>Next Quarter</button>
         </div>

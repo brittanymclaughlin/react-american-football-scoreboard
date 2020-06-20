@@ -1,7 +1,6 @@
 :root {
   --black: #0d0d0d;
   --red: #ffffff;
-  background-position: center;
 }
 
 .scoreboard {
@@ -74,6 +73,7 @@
   font-size: 9rem;
   padding: 2rem;
   text-align: center;
+  color:white;
   background-color: var(--black);
   border: 2px solid white;
   border-radius: 6px;
@@ -126,4 +126,10 @@
 .qtrButton__quarterbutton {
   margin: 1rem;
   border-radius: 4px;
+}
+.header{
+  color:white;
+  text-align: center;
+  font-size:5rem;
+  
 }
